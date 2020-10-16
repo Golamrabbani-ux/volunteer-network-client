@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import * as firebase from "firebase/app";
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../../images/logos/Group 1329.png'
@@ -19,7 +20,18 @@ const Login = () => {
         signInWithGoogle()
         .then(result => {
             setLoggedInUser(result);
+            storeAuthToken();
             history.replace(from)
+        })
+    }
+
+    const storeAuthToken = () =>{
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(idToken => {
+            sessionStorage.setItem('idToken', idToken)
+        })
+        .catch(error => {
+            console.log(error)
         })
     }
 

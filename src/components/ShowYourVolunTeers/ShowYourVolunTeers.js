@@ -10,7 +10,13 @@ const ShowYourVolunTeers = () => {
     const [volunteersMember, setVolunteersMember] = useState([]);
     const [ loggedInUser, setLoggedInUser ] = useContext(UserContext);
     useEffect(()=> {
-        fetch('http://localhost:4000/volunteersMember?email='+loggedInUser.email)
+        fetch('http://localhost:4000/volunteersMember?email='+loggedInUser.email, {
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${sessionStorage.getItem('idToken')}`
+            }
+        })
         .then(res => res.json())
         .then(member =>{
             setVolunteersMember(member);
