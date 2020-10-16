@@ -1,0 +1,37 @@
+.register-volunteers{
+    height: 100vh;
+    background-color: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    height: 50px;
+    margin-bottom: 30px;
+}
+.register-area{
+    width: 420px;
+    min-height: 400px;
+    background-color: #fff;
+    color: black;
+    padding: 20px 40px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+.register-title{
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+}
+.register-area .input{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    font-weight: 600;
+    margin: 18px 0px;
+}
+.register-area span{
+    color: red;
+}
