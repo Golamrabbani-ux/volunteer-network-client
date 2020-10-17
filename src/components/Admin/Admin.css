@@ -1,0 +1,11 @@
+.table{
+    overflow-x: scroll !important;
+}
+.table thead{
+    background-color: #F5F6FA;
+    border-radius: 5px !important;
+    padding: 10px 10px;
+}
+.hide-item{
+    display: none;
+}

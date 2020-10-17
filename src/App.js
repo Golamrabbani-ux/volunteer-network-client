@@ -9,6 +9,7 @@ import Login from './components/Login/Login';
 import RegisterVolunteer from './components/RegisterVolunteer/RegisterVolunteer';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ShowYourVolunTeers from './components/ShowYourVolunTeers/ShowYourVolunTeers';
+import SideBar from './components/SideBar/SideBar';
 
 
 export const UserContext = createContext();
@@ -33,6 +34,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path='/showvolunteers'>
             <ShowYourVolunTeers />
+          </PrivateRoute>
+          <PrivateRoute path='/registerpage'>
+            <SideBar />
           </PrivateRoute>
 
           <Route path='*'>

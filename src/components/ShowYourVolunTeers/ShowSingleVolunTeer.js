@@ -6,7 +6,7 @@ const ShowSingleVolunTeer = ({volunteer}) => {
     const [displayShow, setDisplayShow] = useState(false);
     
     useEffect(() =>{
-        fetch('http://localhost:4000/allVolunteers')
+        fetch('http://localhost:4000/allVolunteersData')
         .then(res => res.json())
         .then(volunteers => {
             setAllVolunTeers(volunteers);
@@ -19,7 +19,6 @@ const ShowSingleVolunTeer = ({volunteer}) => {
         })
         .then(res => res.json())
         .then(data => {
-            alert('Item Deleted');
             setDisplayShow(true);
         })
     }

@@ -8,7 +8,7 @@ const SingleVolunTeer = ({volunteer}) => {
     return (
         <div className='col-sm-6 col-md-4 col-lg-3 single-vounteer'>
             <Link to={`/registervolunteer/${volunteer.title}`}>
-                <div className="card">
+                <div className="card" style={{height: '300px'}}>
                     <img className="card-img-top" src={volunteer.pic} alt="Card image cap" />
                     <div className="card-body card-middle">
                         <h5 className="card-title text-white">{volunteer.title}</h5>
