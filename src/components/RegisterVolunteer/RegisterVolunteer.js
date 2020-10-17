@@ -14,7 +14,7 @@ const RegisterVolunteer = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:4000/addVolunteerMember', {
+        fetch('https://volunteer-network-server-gr.herokuapp.com/addVolunteerMember', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

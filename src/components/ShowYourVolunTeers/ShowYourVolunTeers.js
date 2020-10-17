@@ -10,7 +10,7 @@ const ShowYourVolunTeers = () => {
     const [volunteersMember, setVolunteersMember] = useState([]);
     const [ loggedInUser, setLoggedInUser ] = useContext(UserContext);
     useEffect(()=> {
-        fetch('http://localhost:4000/volunteersMember?email='+loggedInUser.email, {
+        fetch('https://volunteer-network-server-gr.herokuapp.com/volunteersMember?email='+loggedInUser.email, {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',

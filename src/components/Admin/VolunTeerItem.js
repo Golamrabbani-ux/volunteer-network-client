@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const VolunTeerItem = ({volunteerMember}) => {
     const [displayShow, setDisplayShow] = useState(false);
     const handleMemberDelete = id =>{
-        fetch(`http://localhost:4000/deleteVolunteerMember/${id}`, {
+        fetch(`https://volunteer-network-server-gr.herokuapp.com/deleteVolunteerMember/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

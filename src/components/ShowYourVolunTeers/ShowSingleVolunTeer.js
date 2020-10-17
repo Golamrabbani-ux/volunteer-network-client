@@ -6,7 +6,7 @@ const ShowSingleVolunTeer = ({volunteer}) => {
     const [displayShow, setDisplayShow] = useState(false);
     
     useEffect(() =>{
-        fetch('http://localhost:4000/allVolunteersData')
+        fetch('https://volunteer-network-server-gr.herokuapp.com/allVolunteersData')
         .then(res => res.json())
         .then(volunteers => {
             setAllVolunTeers(volunteers);
@@ -14,7 +14,7 @@ const ShowSingleVolunTeer = ({volunteer}) => {
     },[])
 
     const handleCancel =(id) =>{
-        fetch(`http://localhost:4000/deleteVolunteerMember/${id}`, {
+        fetch(`https://volunteer-network-server-gr.herokuapp.com/deleteVolunteerMember/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

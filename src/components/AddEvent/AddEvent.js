@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 const AddEvent = () => {
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:4000/addVolunteer', {
+        fetch('https://volunteer-network-server-gr.herokuapp.com/addVolunteer', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
