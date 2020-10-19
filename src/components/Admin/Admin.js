@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import Loading from '../Loading/Loading';
 import './Admin.css';
 import VolunTeerItem from './VolunTeerItem';
 
@@ -14,23 +15,32 @@ const Admin = () => {
     },[])
 
     return (
-        <table className="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email Id</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Volunteer List</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                    {
-                        allVolunTeerMembers.map(volunteerMember =><VolunTeerItem volunteerMember={volunteerMember} />)
-                    }
-            </tbody>
-        </table>
+        <>
+            {
+                allVolunTeerMembers.length > 0 ?
+                <table className="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email Id</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Volunteer List</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {
+                                allVolunTeerMembers.map(volunteerMember =><VolunTeerItem volunteerMember={volunteerMember} />)
+                            }
+                    </tbody>
+                </table>
+                :
+                <div className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
+                    <Loading />
+                </div>
+            }
+        </>
     );
 };
 

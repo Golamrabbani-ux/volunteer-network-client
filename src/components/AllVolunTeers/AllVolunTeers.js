@@ -3,6 +3,7 @@ import './AllVolunTeers.css';
 import SingleVolunTeer from '../SingleVolunTeer/SingleVolunTeer';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Loading from '../Loading/Loading';
 
 
 
@@ -23,16 +24,23 @@ const AllVolunTerrs = () => {
 
     return (
         <div className="container">
-            <div className='row'>
             {
-                allVolunTeers.map(volunteer => <SingleVolunTeer 
-                    key={volunteer._id} 
-                    volunteer={volunteer} 
-                    bgColors={bgColors}
-                    handleColorIndex= {handleColorIndex}
-                />)
-            }
-            </div>
+                allVolunTeers.length > 0 ?
+                <div className='row'>
+                    {
+                        allVolunTeers.map(volunteer => <SingleVolunTeer 
+                            key={volunteer._id} 
+                            volunteer={volunteer} 
+                            bgColors={bgColors}
+                            handleColorIndex= {handleColorIndex}
+                        />)
+                    }
+                </div>
+                :
+                <div className="d-flex justify-content-center">
+                    <Loading />
+                </div>
+            }            
         </div>
     );
 };
