@@ -8,7 +8,7 @@ import './ShowYourVolunTeers.css';
 
 const ShowYourVolunTeers = () => {
     const [volunteersMember, setVolunteersMember] = useState([]);
-    const [ loggedInUser, setLoggedInUser ] = useContext(UserContext);
+    const [ loggedInUser ] = useContext(UserContext);
     useEffect(()=> {
         fetch('https://volunteer-network-server-gr.herokuapp.com/volunteersMember?email='+loggedInUser.email, {
             method: 'GET',
@@ -21,7 +21,7 @@ const ShowYourVolunTeers = () => {
         .then(member =>{
             setVolunteersMember(member);
         })
-    },[])
+    },[loggedInUser.email])
 
     return (
         <div className='single-volunters-sec'>

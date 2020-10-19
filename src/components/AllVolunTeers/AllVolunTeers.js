@@ -8,6 +8,10 @@ import { useEffect } from 'react';
 
 const AllVolunTerrs = () => {
     const [allVolunTeers, setAllVolunTeers] = useState([]);
+    const bgColors = [ '#FFBD3E', '#FF7044', '#3F90FC', '#421FCF' ];
+    let index = 0;
+    const handleColorIndex = ()=> index > 2 ? index = 0 : index = index + 1;
+    // console.log(bgColors[customBgColor])
     
     useEffect(() =>{
         fetch('https://volunteer-network-server-gr.herokuapp.com/allVolunteersData')
@@ -19,9 +23,14 @@ const AllVolunTerrs = () => {
 
     return (
         <div className="container">
-            <div className='row justify-content-center'>
+            <div className='row'>
             {
-                allVolunTeers.map(volunteer => <SingleVolunTeer key={volunteer._id} volunteer={volunteer} />)
+                allVolunTeers.map(volunteer => <SingleVolunTeer 
+                    key={volunteer._id} 
+                    volunteer={volunteer} 
+                    bgColors={bgColors}
+                    handleColorIndex= {handleColorIndex}
+                />)
             }
             </div>
         </div>

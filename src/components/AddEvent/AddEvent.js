@@ -1,9 +1,14 @@
 import React from 'react';
 import './AddEvent.css';
 import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const AddEvent = () => {
     const { register, errors, handleSubmit } = useForm();
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
+
     const onSubmit = data => {
         fetch('https://volunteer-network-server-gr.herokuapp.com/addVolunteer', {
             method: 'POST',
@@ -15,7 +20,7 @@ const AddEvent = () => {
         .then(res => res.json())
         .then(result => {
             alert('Your Volunteer added')
-            data = ''
+            history.replace(from)
         })
     };
     return (

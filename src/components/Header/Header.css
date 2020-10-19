@@ -1,19 +1,14 @@
-.navbar{
-    height: 80px;
-}
+
 .navbar .header-logo{
     height: 70px;
     cursor: pointer;
     filter: invert(100);
 }
 .navbar .nav-link{
-    color: white !important;
+    color: white !important; 
     font-weight: 600;
     font-size: 18px;
     margin: 10px 15px;
-}
-.navbar .active{
-    color: #C2771C !important;
 }
 .navbar .button{
     padding-left: 30px;

@@ -11,7 +11,7 @@ import './RegisterVolunteer.css'
 const RegisterVolunteer = () => {
     const {title} = useParams();
     const [showVolunteer, setShowVolunteer] = useState(false)
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, ] = useContext(UserContext);
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => {
         fetch('https://volunteer-network-server-gr.herokuapp.com/addVolunteerMember', {
