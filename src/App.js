@@ -10,15 +10,20 @@ import RegisterVolunteer from './components/RegisterVolunteer/RegisterVolunteer'
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import ShowYourVolunTeers from './components/ShowYourVolunTeers/ShowYourVolunTeers';
 import SideBar from './components/SideBar/SideBar';
-import Loading from './components/Loading/Loading';
+
 
 
 export const UserContext = createContext();
+export const SearchContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [searchData, setSearchData] = useState([]);
+
+
 
   return (
+    <SearchContext.Provider value={[searchData, setSearchData]}>
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
@@ -45,6 +50,7 @@ function App() {
         </Switch>
       </Router>
     </UserContext.Provider>
+    </SearchContext.Provider>
   );
 }
 
